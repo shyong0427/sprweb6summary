@@ -29,7 +29,10 @@ public class HelloController extends AbstractController {
 		// 모델과 통신
 		String result = helloModel.getGreeting();
 		
-		ModelAndView modelAndView = new ModelAndView("hello"); 
+//		ModelAndView modelAndView = new ModelAndView("hello"); 
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("hello"); // Forwarding
+//		modelAndView.setViewName("redirect : /hello.jsp"); // redirect
 		modelAndView.addObject("result", result);
 		return modelAndView; // Forwarding
 	}
