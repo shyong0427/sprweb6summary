@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- HanderMapping -->
+	<!-- 방법 1 : 요청 URL과 동일한 이름을 Bean과 Mapping -->
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+	
+	<!-- Controller Mapping-->
+	<bean id="/hello.do" name="/hello.do, /abc/hi.do" class="pack.controller.HelloController">
+		<property name="helloModel" ref="helloModel" />
+	</bean>
+	
+	<bean id="helloModel" class="pack.model.HelloModel" />
+	<!-- ViewResolver -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+</beans>
